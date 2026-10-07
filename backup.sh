@@ -55,7 +55,7 @@ declare -a toBackup
 for file in * # [TASK 9]
 do
   # [TASK 10]
-  if (( $(date -r "$file" +%s) > yesterdayTS ))
+  if [ $(date -r $file +%s) -gt $yesterdayTS ]
   then
     # [TASK 11]
     toBackup+=($file)
