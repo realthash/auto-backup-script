@@ -48,17 +48,17 @@ cd $destDirAbsPath
 cd $targetDirectory
 
 # [TASK 8]
-yesterdayTS=$(($currentTS)-24*60*60)
+yesterdayTS=$((($currentTS)-24*60*60))
 
 declare -a toBackup
 
 for file in * # [TASK 9]
 do
   # [TASK 10]
-  if ((`date -r $file +%s` -gt $yesterdayTS))
+  if (( $(date -r "$file" +%s) > yesterdayTS ))
   then
     # [TASK 11]
-    $toBackup+=($file)
+    toBackup+=($file)
   fi
 done
 
